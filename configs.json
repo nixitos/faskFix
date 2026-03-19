@@ -14,5 +14,9 @@
     "horny": {
         "allow": "{horny=allow}",
         "deny": "{horny=deny}"
+    },
+    "roleplay": {
+        "allow": "{roleplay=allow}",
+        "deny": ""
     }
 }
