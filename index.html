@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>faskFix :: ИИ фикс</title>
+</head>
+<body>
+    <h3>легкйи конфигуратор faskFix</h3>
+    
+    <div id="checkboxes">
+    </div>
+
+    <br>
+    <label for="configBox">сгенерированный конфиг:</label>
+    <br>
+    <textarea id="configBox" rows="6" cols="60" readonly></textarea>
+
+    <script>
+        let configRules = {};
+        const checkboxesDiv = document.getElementById('checkboxes');
+        const configBox = document.getElementById('configBox');
+        let checkElements = [];
+
+        fetch('configs.json')
+            .then(response => response.json())
+            .then(data => {
+                configRules = data;
+                renderCheckboxes();
+                generateConfig();
+            })
+            .catch(error => {
+                configBox.value = 'Ошибка загрузки configs.json: ' + error;
+            });
+
+        function renderCheckboxes() {
+            checkboxesDiv.innerHTML = '';
+            checkElements = [];
+
+            for (let key in configRules) {
+                const label = document.createElement('label');
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.id = key;
+                cb.name = key;
+                
+                let displayName = key;
+                if (key === 'humit_v1') displayName = 'humit v1';
+                
+                label.appendChild(cb);
+                label.appendChild(document.createTextNode(' ' + displayName));
+                
+                const br = document.createElement('br');
+                checkboxesDiv.appendChild(label);
+                checkboxesDiv.appendChild(br);
+                
+                cb.addEventListener('change', generateConfig);
+                
+                checkElements.push(cb);
+            }
+        }
+
+        function generateConfig() {
+            let parts = [];
+
+            checkElements.forEach(cb => {
+                const key = cb.id;
+                const rule = configRules[key];
+                if (!rule) return;
+
+                if (cb.checked) {
+                    parts.push(rule.allow);
+                } else {
+                    if (rule.deny) {
+                        parts.push(rule.deny);
+                    }
+                }
+            });
+
+            const finalParts = parts.filter(p => p.trim() !== '');
+            configBox.value = finalParts.join(',');
+        }
+    </script>
+</body>
+</html>
