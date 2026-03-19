@@ -1,0 +1,18 @@
+{
+    "noEmoji": {
+        "allow": "{noEmoji=allow}",
+        "deny": "{noEmoji=deny}"
+    },
+    "humit_v1": {
+        "allow": "{humit-v1=allow}",
+        "deny": "{humit-v1=deny}"
+    },
+    "uncensored": {
+        "allow": "{uncensored}",
+        "deny": ""
+    },
+    "horny": {
+        "allow": "{horny=allow}",
+        "deny": "{horny=deny}"
+    }
+}
