@@ -8,8 +8,7 @@
         "deny": "{humit-v1=deny}"
     },
     "uncensored": {
-        "allow": "{uncensored}",
-        "deny": ""
+        "allow": "{uncensored}"
     },
     "horny": {
         "allow": "{horny=allow}",
