@@ -1,6 +1,6 @@
 <div align="center">
 
-# nixitos - FaskFix
+# <img src="https://cdn-icons-png.flaticon.com/512/7413/7413874.png" height="28" /> nixitos - FaskFix
 **Конфигуратор промптов для ИИ моделей с гибкой настройкой поведения**
 
 </div>
@@ -22,7 +22,7 @@
 ## ℹ️ Краткие описания файлов
 
 - [**`main-prompt.txt`**](./main-prompt.txt) — основной промпт faskFix, содержащий логику обработки параметров
-- [**`config.json`**](./config-examples.txt) — системный набор для конфигурации
+- [**`config.json`**](./configs.json) — системный набор для конфигурации
 - [**`index.html`**](./index.html) - HTML страница самого сайта
 
 ## ☑️ Распространенные вопросы и проблемы
