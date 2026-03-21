@@ -17,6 +17,6 @@
     },
     "roleplay": {
         "allow": "{roleplay=allow}",
-        "deny": ""
+        "deny": "{roleplay=deny}"
     }
 }
