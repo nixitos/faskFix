@@ -61,28 +61,24 @@
 
         function generateConfig() {
             let parts = [];
-        
+
             checkElements.forEach(cb => {
                 const key = cb.id;
                 const rule = configRules[key];
                 if (!rule) return;
-        
+
                 if (cb.checked) {
                     parts.push(rule.allow);
                 } else {
-                    if (rule.deny !== undefined && rule.deny !== '') {
+                    if (rule.deny && rule.deny !== '') {
                         parts.push(rule.deny);
                     } else {
                         parts.push(`{${key}=deny}`);
                     }
                 }
             });
-        
-            configBox.value = parts.filter(p => p.trim() !== '').join(',');
-        }
 
-            const finalParts = parts.filter(p => p.trim() !== '');
-            configBox.value = finalParts.join(',');
+            configBox.value = parts.join(',');
         }
     </script>
 </body>
